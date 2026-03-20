@@ -23,8 +23,8 @@ export default function ContactSection() {
                 <span className="text-2xl">✉️</span>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">Email</p>
-                  <a href="mailto:info@example.com" className="text-stone-800 hover:text-amber-600 transition-colors font-medium">
-                    info@example.com
+                  <a href="mailto:venyamin.n@yandex.ru" className="text-stone-800 hover:text-amber-600 transition-colors font-medium">
+                    venyamin.n@yandex.ru
                   </a>
                 </div>
               </div>
