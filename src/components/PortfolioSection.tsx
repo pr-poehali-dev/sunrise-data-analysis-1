@@ -19,6 +19,31 @@ const works = [
     title: 'Восстановление фотографии',
     tag: 'Фото',
   },
+  {
+    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/bucket/6d61402e-acf8-4292-9bfb-4875fe974fe1.jpg',
+    title: 'Памятник с портретной гравировкой',
+    tag: 'Изготовление',
+  },
+  {
+    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/bucket/1ad5ab17-4cdb-4018-84d8-d22c83e1d6da.jpg',
+    title: 'Памятник с художественной гравировкой',
+    tag: 'Гравировка',
+  },
+  {
+    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/bucket/b2304a9c-1292-4e91-9272-f9d625175309.jpg',
+    title: 'Памятник с благоустройством',
+    tag: 'Установка',
+  },
+  {
+    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/bucket/709a694b-477a-4ebe-bbce-a6b23e22f78d.jpg',
+    title: 'Фигурный памятник с гравировкой',
+    tag: 'Гравировка',
+  },
+  {
+    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/bucket/223029ef-73ae-40c1-8253-33b283d52484.jpg',
+    title: 'Памятник герою',
+    tag: 'Изготовление',
+  },
 ];
 
 export default function PortfolioSection() {
@@ -29,7 +54,7 @@ export default function PortfolioSection() {
           <p className="text-sm font-medium uppercase tracking-widest text-amber-400 mb-3">Примеры работ</p>
           <h2 className="text-3xl font-light text-white md:text-4xl">Наши работы</h2>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {works.map((work) => (
             <div key={work.title} className="group relative overflow-hidden">
               <img
