@@ -32,7 +32,7 @@ export default function ContactSection() {
                 <span className="text-2xl">📍</span>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">Адрес</p>
-                  <p className="text-stone-800 font-medium">г. Москва, ул. Примерная, 1</p>
+                  <p className="text-stone-800 font-medium">ул. Рождественского, 16/1</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
