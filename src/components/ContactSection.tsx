@@ -56,7 +56,7 @@ export default function ContactSection() {
                 Telegram
               </a>
               <a
-                href="https://vk.com/"
+                href="https://vk.com/monument_ast"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 border border-stone-200 hover:border-amber-400 px-4 py-2 text-stone-600 hover:text-amber-600 transition-colors text-sm"
