@@ -1,4 +1,35 @@
+import { useState } from 'react';
+
+const SEND_CONTACT_URL = 'https://functions.poehali.dev/26c2d59e-7198-4364-889a-68082ef74d32';
+
 export default function ContactSection() {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      const res = await fetch(SEND_CONTACT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, message }),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setName('');
+        setPhone('');
+        setMessage('');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contact" className="bg-white py-24">
       <div className="container mx-auto px-8 md:px-16">
@@ -71,38 +102,64 @@ export default function ContactSection() {
 
           <div className="bg-stone-50 p-10">
             <h3 className="text-xl font-light text-stone-800 mb-6">Оставить заявку</h3>
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">Ваше имя</label>
-                <input
-                  type="text"
-                  placeholder="Иван Иванов"
-                  className="w-full border border-stone-200 px-4 py-3 text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 transition-colors"
-                />
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center h-64 gap-4 text-center">
+                <span className="text-5xl">✅</span>
+                <p className="text-stone-800 font-medium text-lg">Заявка отправлена!</p>
+                <p className="text-stone-500 text-sm">Мы свяжемся с вами в ближайшее время.</p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="mt-2 text-amber-600 hover:text-amber-500 text-sm underline"
+                >
+                  Отправить ещё одну заявку
+                </button>
               </div>
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">Телефон</label>
-                <input
-                  type="tel"
-                  placeholder="+7 (000) 000-00-00"
-                  className="w-full border border-stone-200 px-4 py-3 text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">Сообщение</label>
-                <textarea
-                  rows={4}
-                  placeholder="Опишите, что вам нужно..."
-                  className="w-full border border-stone-200 px-4 py-3 text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 transition-colors resize-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-400 text-stone-900 font-medium py-3 transition-colors duration-200"
-              >
-                Отправить заявку
-              </button>
-            </form>
+            ) : (
+              <form className="space-y-5" onSubmit={handleSubmit}>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">Ваше имя</label>
+                  <input
+                    type="text"
+                    placeholder="Иван Иванов"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="w-full border border-stone-200 px-4 py-3 text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">Телефон</label>
+                  <input
+                    type="tel"
+                    placeholder="+7 (000) 000-00-00"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    className="w-full border border-stone-200 px-4 py-3 text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2">Сообщение</label>
+                  <textarea
+                    rows={4}
+                    placeholder="Опишите, что вам нужно..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full border border-stone-200 px-4 py-3 text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 transition-colors resize-none"
+                  />
+                </div>
+                {status === 'error' && (
+                  <p className="text-red-500 text-sm">Не удалось отправить заявку. Попробуйте позже или позвоните нам.</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="w-full bg-amber-500 hover:bg-amber-400 disabled:bg-amber-300 text-stone-900 font-medium py-3 transition-colors duration-200"
+                >
+                  {status === 'loading' ? 'Отправляем...' : 'Отправить заявку'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
