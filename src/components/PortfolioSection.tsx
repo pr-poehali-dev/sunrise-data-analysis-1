@@ -15,7 +15,7 @@ const works = [
     tag: 'Гравировка',
   },
   {
-    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/files/bc495c82-588c-4bd3-8b33-4bff85f8298f.jpg',
+    src: 'https://cdn.poehali.dev/projects/37ecf694-e296-458e-9f93-75984e84f086/bucket/85822cf5-ad32-4022-a745-464369ac66af.JPG',
     title: 'Восстановление фотографии',
     tag: 'Фото',
   },
