@@ -48,6 +48,10 @@ export default function ContactSection() {
                   <a href="tel:+79616530501" className="text-stone-800 hover:text-amber-600 transition-colors font-medium">
                     +7 (961) 653-05-01
                   </a>
+                  <br />
+                  <a href="tel:+79996467261" className="text-stone-800 hover:text-amber-600 transition-colors font-medium">
+                    +7 (999) 646-72-61
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
