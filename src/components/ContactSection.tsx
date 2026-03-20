@@ -74,7 +74,7 @@ export default function ContactSection() {
                 <span className="text-2xl">🕐</span>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">Режим работы</p>
-                  <p className="text-stone-800 font-medium">Пн–Сб: 9:00–18:00</p>
+                  <p className="text-stone-800 font-medium">Пн–Пт: 9:00–17:00</p>
                 </div>
               </div>
             </div>
