@@ -14,8 +14,8 @@ export default function ContactSection() {
                 <span className="text-2xl">📞</span>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-stone-400 mb-1">Телефон</p>
-                  <a href="tel:+70000000000" className="text-stone-800 hover:text-amber-600 transition-colors font-medium">
-                    +7 (000) 000-00-00
+                  <a href="tel:+79616530501" className="text-stone-800 hover:text-amber-600 transition-colors font-medium">
+                    +7 (961) 653-05-01
                   </a>
                 </div>
               </div>
